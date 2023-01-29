@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\sem6\\44\\44.csproj": {}
+    "C:\\Users\\user\\Desktop\\sem6\\Задача 47\\44.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\sem6\\44\\44.csproj": {
+    "C:\\Users\\user\\Desktop\\sem6\\Задача 47\\44.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\sem6\\44\\44.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\sem6\\Задача 47\\44.csproj",
         "projectName": "44",
-        "projectPath": "C:\\Users\\user\\Desktop\\sem6\\44\\44.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\sem6\\Задача 47\\44.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\sem6\\44\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\sem6\\Задача 47\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"

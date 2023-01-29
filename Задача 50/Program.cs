@@ -1,10 +1,12 @@
-﻿//Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+﻿//Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
 //Например, задан массив:
 //1 4 7 2
 //5 9 2 3
 //8 4 2 4
-//1, 7(ввод индексов) -> такого числа в массиве нет
-//1, 1 -> 9
+//В итоге получается вот такой массив:
+//7 4 2 1
+//9 5 3 2
+//8 4 4 2
 void FillArrayWithRandom(int[,] matrix, int m, int n )
 {
     for (int i = 0; i < m; i++)
@@ -18,36 +20,41 @@ void FillArrayWithRandom(int[,] matrix, int m, int n )
     }
     Console.WriteLine();
 }
-void NewMatrix(int[,] matrix, int m, int n,int i1,int i2)
+void OrderArrayLines(int[,] matrix)
 {
-    for (int i = 0; i < m; i++)
+  for (int i = 0; i < matrix.GetLength(0); i++)
+  {
+    for (int j = 0; j < matrix.GetLength(1); j++)
     {
-        for (int j = 0; j < n; j++)
+      for (int k = 0; k < matrix.GetLength(1) - 1; k++)
+      {
+        if (matrix[i, k] < matrix[i, k + 1])
         {
-            if (i ==i1 && j ==i2)
-            {
-               Console.WriteLine( "Массив по вашему индексу "+matrix[i, j]); 
-            }
-            
+          int temp = matrix[i, k + 1];
+          matrix[i, k + 1] = matrix[i, k];
+          matrix[i, k] = temp;
         }
-        }
+      }
+    }
+  }
+}
+
+void WriteArray(int[,] matrix)
+{
+  for (int i = 0; i < matrix.GetLength(0); i++)
+  {
+    for (int j = 0; j < matrix.GetLength(1); j++)
+    {
+      Console.Write(matrix[i, j] + " ");
+    }
+    Console.WriteLine();
+  }
 }
 Console.WriteLine("Введите число m:");
 int m = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите число n:");
 int n = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите индекс i1");
-int i1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите индекс i2:");
-int i2 = Convert.ToInt32(Console.ReadLine());
 int[,] matrix = new int[m, n];
 FillArrayWithRandom(matrix, m, n );
-NewMatrix(matrix, m, n, i1, i2);
-if (i1<m&&i2<n)
-{
-    
-}
-else
-{
-    Console.WriteLine("такого числа в массиве нет"); 
-}
+OrderArrayLines(matrix);
+WriteArray(matrix);
