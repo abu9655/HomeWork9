@@ -1,60 +1,21 @@
-﻿//Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
-//Например, задан массив:
-//1 4 7 2
-//5 9 2 3
-//8 4 2 4
-//В итоге получается вот такой массив:
-//7 4 2 1
-//9 5 3 2
-//8 4 4 2
-void FillArrayWithRandom(int[,] matrix, int m, int n )
-{
-    for (int i = 0; i < m; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            matrix[i, j] = new Random().Next(0, 10);
-            Console.Write(matrix[i, j] + " ");
-        }
-        Console.WriteLine();
-    }
-    Console.WriteLine();
-}
-void OrderArrayLines(int[,] matrix)
-{
-  for (int i = 0; i < matrix.GetLength(0); i++)
-  {
-    for (int j = 0; j < matrix.GetLength(1); j++)
-    {
-      for (int k = 0; k < matrix.GetLength(1) - 1; k++)
-      {
-        if (matrix[i, k] < matrix[i, k + 1])
-        {
-          int temp = matrix[i, k + 1];
-          matrix[i, k + 1] = matrix[i, k];
-          matrix[i, k] = temp;
-        }
-      }
-    }
-  }
-}
+﻿//Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+//m = 2, n = 3 -> A(m,n) = 9
+//m = 3, n = 2 -> A(m,n) = 29
 
-void WriteArray(int[,] matrix)
+int AkkermanFunc(int m, int n)
 {
-  for (int i = 0; i < matrix.GetLength(0); i++)
-  {
-    for (int j = 0; j < matrix.GetLength(1); j++)
+    if (m == 0)
     {
-      Console.Write(matrix[i, j] + " ");
+        return n + 1;
     }
-    Console.WriteLine();
-  }
+    if (m > 0 && n == 0)
+    {
+        return AkkermanFunc(m - 1, 1);
+    }
+    return AkkermanFunc(m - 1, AkkermanFunc(m, n - 1));
 }
-Console.WriteLine("Введите число m:");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите число n:");
+Console.WriteLine("Введите число N: ") ;
 int n = Convert.ToInt32(Console.ReadLine());
-int[,] matrix = new int[m, n];
-FillArrayWithRandom(matrix, m, n );
-OrderArrayLines(matrix);
-WriteArray(matrix);
+Console.WriteLine("Введите число M: ") ;
+int m = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("A(m,n)="+AkkermanFunc(n, m));
